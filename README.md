@@ -29,3 +29,16 @@ It avoids starvation.
 ![alt text](image-4.png)
 
 ![alt text](image-5.png)
+
+### Daemon threads
+
+Background threads that don't prevent the application from exiting if the main thread terminates.
+
+```
+Thread t = new Thread(() -> {});
+t.setDaemon(true);
+```
+
+- **scenarios**
+
+  - Background tasks, that should not block our application from terminating. Eg.: file saving thread in a text editor.
