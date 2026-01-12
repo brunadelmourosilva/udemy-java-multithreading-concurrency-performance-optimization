@@ -39,6 +39,13 @@ Thread t = new Thread(() -> {});
 t.setDaemon(true);
 ```
 
-- **scenarios**
+- **Scenarios**
 
   - Background tasks, that should not block our application from terminating. Eg.: file saving thread in a text editor.
+
+---
+
+### Performance in multithreading
+
+- **Latency** - the time completion of a task. Measured in time units.
+- **Throughput** - the amount of tasks completed in a given period. Measured in tasks/time unit.
