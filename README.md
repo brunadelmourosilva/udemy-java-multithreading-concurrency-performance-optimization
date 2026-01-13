@@ -49,3 +49,31 @@ t.setDaemon(true);
 
 - **Latency** - the time completion of a task. Measured in time units.
 - **Throughput** - the amount of tasks completed in a given period. Measured in tasks/time unit.
+
+#### Analysis
+
+![alt text](image-6.png)
+
+---
+
+### Thread pooling (throughput)
+
+Create threads once and reusing them for feature tasks instead of recreating the threads each and every time from scratch.
+
+Once the threads are created, they sit in the pool and the tasks are distributed among the threads through a queue.
+
+Each thread takes tasks from that queue whenever that thread is available. If all threads are busy, the tasks are going to stay in the queue and waiting for a thread to become available.
+
+If we keep the threads well, busy and utilized, and feeding tasks into the queue, we can get the maximum throughput and maximum utilization.
+
+This concept provided us a significant performance improvement.
+
+In Java, we can use fixed thread pool executor:
+
+```
+int numberOfThreads = 4;
+Executor e = Executors.newFixedThreadPool(numberOfThreads);
+
+Runnable task = ...;
+e.execute(task);
+```
