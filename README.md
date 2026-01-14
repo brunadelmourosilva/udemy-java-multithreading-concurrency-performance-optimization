@@ -77,3 +77,48 @@ Executor e = Executors.newFixedThreadPool(numberOfThreads);
 Runnable task = ...;
 e.execute(task);
 ```
+
+---
+
+### Data sharing between threads
+
+#### Stack (exclusive)
+
+- Each stack region belongs to a particular thread;
+  
+- It's a memory region where:
+  
+  - methods are called;
+  - arguments are passed;
+  - local variables are stored.
+
+- Stack + Instruction Pointer = state of each thread's execution.
+  
+- Example of a visible stack: debug a program and observe the variables console, where we can see the stack in action.
+
+#### Heap (shared)
+
+- It's a shared memory region that belongs to the process;
+  
+- Allocated on the heap:
+
+  - Objects (anything created with *new* operator)
+    - String
+    - Object
+    - Colletion
+    - ...
+  - Members of classes
+  - Static variables
+
+#### Objects x References
+
+- References
+  
+  - Can be allocated on the stack (if declared as local variables inside a method);
+  - Can be allocated on the heap with their parent object (if they are members of a class, eg.: attributes)
+
+- Objects
+  
+  - Always allocated on the heap
+
+![alt text](image-7.png)
