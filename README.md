@@ -112,13 +112,39 @@ e.execute(task);
 
 #### Objects x References
 
-- References
+- **References**
   
-  - Can be allocated on the stack (if declared as local variables inside a method);
-  - Can be allocated on the heap with their parent object (if they are members of a class, eg.: attributes)
+  - Can be allocated on the **stack** (if declared as local variables inside a method);
+  - Can be allocated on the **heap** with their parent object (if they are members of a class, eg.: attributes)
 
-- Objects
+- **Objects**
   
   - Always allocated on the heap
 
 ![alt text](image-7.png)
+
+---
+
+### Resource Sharing and Critical Regions
+
+##### Resources sharing example:
+
+- database microservice, where each thread processes an HTTP request and, in the end, all threads use the same database connection to perform operations.
+
+
+#### Atomic Operations
+
+- An operation or a set of operations is considered atomic, if it happens to the rest of the system as if it occured at once.
+  
+- Single step - "all or nothing".
+
+- No intermediate states
+
+- **Example:**
+
+  - the variable **items++** **is not** an atomic operation
+  
+    - Get the current value of items
+    - Increment the current value by 1
+    - Store the result into items
+    - Similar to: items = items + 1
