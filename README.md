@@ -148,3 +148,10 @@ e.execute(task);
     - Increment the current value by 1
     - Store the result into items
     - Similar to: items = items + 1
+
+#### Synchronization
+
+- Use the **syncrhonized** keyword to protect the critical section in two ways
+  
+  - Simple way (in front of a method)
+  - On a explicit object - more fexible and granular (keeps only the critical section as non concurrent), but also more verbose
