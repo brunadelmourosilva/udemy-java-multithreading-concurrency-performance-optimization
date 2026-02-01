@@ -131,7 +131,6 @@ e.execute(task);
 
 - database microservice, where each thread processes an HTTP request and, in the end, all threads use the same database connection to perform operations.
 
-
 #### Atomic Operations
 
 - An operation or a set of operations is considered atomic, if it happens to the rest of the system as if it occured at once.
@@ -155,3 +154,23 @@ e.execute(task);
   
   - Simple way (in front of a method)
   - On a explicit object - more fexible and granular (keeps only the critical section as non concurrent), but also more verbose
+
+
+#### What needs to be synchronized and what doesn't?
+
+- All reference assignments are atomic
+- We can get and set references to objects atomically
+  
+  - Example: 
+    Object a = new Object();
+    Object b = new Object();
+    a = b; // atomic
+<br>
+- Getters and setters are atomic and they don't need to be synchronized
+<br>
+- All assignments to primitive types are safe **except long and double**
+- Assignments to long and double if  declared *volatile*
+  - Example: 
+    volatile double x = 1.0;
+    volatile double y = 9.0;
+    x = y; // atomic

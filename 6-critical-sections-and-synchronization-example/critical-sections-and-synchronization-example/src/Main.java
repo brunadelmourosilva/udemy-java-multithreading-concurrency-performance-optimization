@@ -78,11 +78,10 @@ public class Main {
       }
     }
 
+    // it doesn't necessary to sync. getters and setters
+    // and for primitive types EXCEPT for long and double (64 bits)
     public int getItems() {
-      // todo synchronizing only the critical section
-      synchronized (this.lock) {
         return items;
-      }
     }
   }
 }
