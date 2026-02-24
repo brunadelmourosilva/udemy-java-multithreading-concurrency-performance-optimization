@@ -172,6 +172,9 @@ e.execute(task);
 - Assignments to long and double if  declared *volatile*
   - Example: 
     volatile double x = 1.0;
+
     volatile double y = 9.0;
+
     x = y; // atomic
+
 - https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.7
