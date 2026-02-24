@@ -159,22 +159,28 @@ e.execute(task);
 #### What needs to be synchronized and what doesn't?
 
 - All reference assignments are atomic
+  
 - We can get and set references to objects atomically
   
-  - Example: 
+  - Example:
+    ```
     Object a = new Object();
     Object b = new Object();
     a = b; // atomic
-<br>
+    ```
+    
+
 - Getters and setters are atomic and they don't need to be synchronized
-<br>
+
 - All assignments to primitive types are safe **except long and double**
+  
 - Assignments to long and double if  declared *volatile*
-  - Example: 
+
+  - Example:
+    ```
     volatile double x = 1.0;
-
     volatile double y = 9.0;
-
     x = y; // atomic
+    ```
 
 - https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.7
