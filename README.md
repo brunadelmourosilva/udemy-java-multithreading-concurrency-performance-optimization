@@ -184,3 +184,22 @@ e.execute(task);
     ```
 
 - https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.7
+
+#### Race condition and data race
+
+- **Race conditions**
+
+  - Condition where threads are accessing a shared resource
+  - The core of the problem is non atomic operations performed on the shared resource
+  - **Example**: two threads accessing the same items++ variable without using the right method to avoid inconsistent (e.g.: synchronized keyword)
+
+- **Data race**
+
+  - Condition where threads are accessing independent resources (e.g.: variables x++ and y++) simultaneously, which may lead to unexpected, paradoxical and incorrect results during their execution, even if the final value for both variables is the same at the end of the process 
+  - This is caused because the compiler and CPU may execute instructions out of the order to optmize performance and utilization. The mentioned behavior are important features to speed up the code 
+  - **Solutions:** synchronization of methods which **modify shared variables** and declaration of shared variables with the *volatile* keyword (this will reduce overhead of locking and will guarantee order)
+
+- **Summary**
+
+  - Synchronized - solves both race condition and data race, but has a performance penalty
+  - Volatile - solves race condition for read/write from/to long and double and solves all data races by guaranteeing order
