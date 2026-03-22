@@ -203,3 +203,37 @@ e.execute(task);
 
   - Synchronized - solves both race condition and data race, but has a performance penalty
   - Volatile - solves race condition for read/write from/to long and double and solves all data races by guaranteeing order
+
+#### Deadlocks
+
+Deadlock is a situation where everyone is trying to make progress, but cannot because they're waiting for another part to make a move (circular dependency).
+
+##### Example: railroad traffic control
+
+![alt text](image-12.png)
+
+![alt text](image-8.png)
+
+#### Conditions for a deadlock
+
+![alt text](image-9.png)
+
+#### Solution
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+#### Conclusion
+
+- . Enforcing a strict order on lock acquisition
+prevents deadlocks
+· Easy to do with a small number of locks
+. Maybe hard to accomplish if there are many
+locks in different places
+Other techniques:
+o Deadlock detection - Watchdog
+o Thread interruption (not possible with
+synchronized)
+o tryLock operations (not possible with
+synchronized)
