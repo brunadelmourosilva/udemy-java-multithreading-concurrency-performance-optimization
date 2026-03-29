@@ -226,14 +226,17 @@ Deadlock is a situation where everyone is trying to make progress, but cannot be
 
 #### Conclusion
 
-- . Enforcing a strict order on lock acquisition
+- Enforcing a strict order on lock acquisition
 prevents deadlocks
-· Easy to do with a small number of locks
-. Maybe hard to accomplish if there are many
-locks in different places
-Other techniques:
-o Deadlock detection - Watchdog
-o Thread interruption (not possible with
-synchronized)
-o tryLock operations (not possible with
-synchronized)
+
+- Easy to do with a small number of locks
+  
+- Maybe hard to accomplish if there are many locks in different places
+
+- Other techniques:
+
+  - Deadlock detection - Watchdog
+
+  - Thread interruption (not possible with synchronized)
+
+  - tryLock operations (not possible with synchronized)
