@@ -240,3 +240,42 @@ prevents deadlocks
   - Thread interruption (not possible with synchronized)
 
   - tryLock operations (not possible with synchronized)
+
+---
+
+### ReentrantLock
+
+- Works like a synchronized keyword
+- Requires explicit locking and unlocking
+
+![alt text](image-13.png)
+
+- Disadavantage
+
+  - Forget to unlock the object at the end
+  - Exception thrown before unlocking (solution: use finally statement)
+
+- Advantage
+  
+  - Control over the lock
+  - More lock operations
+
+![alt text](image-14.png)
+
+![alt text](image-15.png)
+
+![alt text](image-16.png)
+
+- ReentrantLock.lockInterruptibly()
+
+![alt text](image-17.png)
+
+- ReentrantLock.tryLock()
+
+![alt text](image-18.png)
+
+![alt text](image-19.png)
+
+![alt text](image-20.png)
+
+![alt text](image-21.png)
