@@ -245,6 +245,8 @@ prevents deadlocks
 
 ### ReentrantLock
 
+Reentrant meaning: a function or lock can be safely interrupted and called again (re-entered) before it finishes the first run.
+
 - Works like a synchronized keyword
 - Requires explicit locking and unlocking
 
@@ -289,3 +291,19 @@ prevents deadlocks
 ![alt text](image-24.png)
 
 ![alt text](image-25.png)
+
+---
+
+### Semaphore
+
+- Can be used to restrict the number of "users" to a particular resource or a group of resources
+
+- Unlike the locks that allows only one "user" per resource
+
+- The semaphore can restrict any given number of users to a resource
+
+![alt text](image-26.png)
+
+![alt text](image-29.png)
+
+![alt text](image-30.png)
