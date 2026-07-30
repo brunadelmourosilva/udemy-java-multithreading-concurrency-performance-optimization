@@ -307,3 +307,110 @@ Reentrant meaning: a function or lock can be safely interrupted and called again
 ![alt text](image-27.png)
 
 ![alt text](image-28.png)
+
+---
+
+### Inter-thread communication
+
+- await()
+
+![alt text](image-31.png)
+
+- wait(), notify(), notifyAll()
+
+![alt text](image-32.png)
+
+---
+
+### AtomicX Classes
+
+![alt text](image-33.png)
+
+- **AtomicInteger**
+
+  - Pros: simplicity; no need to for locks or synchronization; no race conditions or data races
+  - Cons: only the op itself is atomic; there's still race conditions between 2 separate atomic op
+
+- **AtomicReference**
+
+  - Wraps the reference to an object of a class, and give us the ability to perform atomic operations on that reference
+
+  - compareAndSet()
+    ![alt text](image-35.png)
+    ![alt text](image-36.png)
+    
+---
+
+### Thread-per-task model (blocking IO)
+
+![alt text](<image-37.png>)
+
+### Thread-per-core model (non-blocking IO)
+
+![alt text](image-38.png)
+
+- Frameworks examples: netty, webflux, vert.x
+
+### Thread-per-task X Thread-per-core
+
+![alt text](image-39.png)
+
+---
+
+### Virtual Threads
+
+Purpose: improve application scalability and simplify concurrent programming by enabling a high-throughput "thread-per-request" style without the high resource overhead of operating system threads. 
+
+**Points of VT:**
+  - Managed by JVM. Multiplexed onto a small pool of OS platform threads called carrier threads
+  - Just like any other Java object on the heap
+  - Mounting / Unmounting allows scheduling of many virtual threads on a limited number of carrier threads
+  - Mounting / Unmounting has a bit of overhead, but not as much as compared a context switch
+
+**Points of Platform Threads:**  
+  - Tied 1:1 to operating system kernel threads. Scheduled directly by the OS kernel.
+  - Are expensive
+  - Have fixed size stack memory
+  - Map 1-to-1 to OS threads
+
+![alt text](image-40.png)
+
+#### Threading comparison models
+
+![alt text](image-41.png)
+
+#### Benefits
+
+![alt text](image-42.png)
+
+#### Virtual Threads - best practices
+
+![alt text](image-43.png)
+
+**Tasks that involves only the CPU - no benefit**
+
+![alt text](image-44.png)
+
+**Not much benefit on latency only with CPU operations. Only for throughput.**
+
+![alt text](image-45.png)
+
+**Frequent blocking calls**
+
+![alt text](image-46.png)
+
+**Best practices for VT**
+
+- Never create fixed-size pools of virtual threads
+  - Preferred way to use Virtual Threads is using Executors.newVirtualThreadPerTaskExecutor()
+
+- Virtual Threads are always daemon threads
+  - virtualThread.setDaemon( ... ) - Throws an exception
+
+- Virtual Threads always have default priority
+  - virtualThread.setPriority( ... ) - Doesn't do anything
+
+### Resources
+
+- https://medium.com/@MPogrebinsky/top-3-projects-for-java-concurrency-8c0752724e72
+  - it mentions about vert.x
