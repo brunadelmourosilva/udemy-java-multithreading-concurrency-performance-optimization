@@ -307,3 +307,50 @@ Reentrant meaning: a function or lock can be safely interrupted and called again
 ![alt text](image-27.png)
 
 ![alt text](image-28.png)
+
+---
+
+### Inter-thread communication
+
+- await()
+
+![alt text](image-31.png)
+
+- wait(), notify(), notifyAll()
+
+![alt text](image-32.png)
+
+---
+
+### AtomicX Classes
+
+![alt text](image-33.png)
+
+- **AtomicInteger**
+
+  - Pros: simplicity; no need to for locks or synchronization; no race conditions or data races
+  - Cons: only the op itself is atomic; there's still race conditions between 2 separate atomic op
+
+- **AtomicReference**
+
+  - Wraps the reference to an object of a class, and give us the ability to perform atomic operations on that reference
+
+  - compareAndSet()
+    ![alt text](image-35.png)
+    ![alt text](image-36.png)
+    
+---
+
+### Thread-per-task model (blocking IO)
+
+![alt text](<image-37.png>)
+
+### Thread-per-core model (non-blocking IO)
+
+![alt text](image-38.png)
+
+- Frameworks examples: netty, webflux, vert.x
+
+### Thread-per-task X Thread-per-core
+
+![alt text](image-39.png)
