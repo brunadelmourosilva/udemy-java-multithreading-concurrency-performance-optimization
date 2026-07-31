@@ -1,4 +1,6 @@
 
+Course: https://www.udemy.com/course/java-multithreading-concurrency-performance-optimization/
+
 # NOTES
 
 ### Context switching
