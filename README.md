@@ -6,13 +6,13 @@
 All processes may have one or more threads and all threads are competing beteween themselves to be executed on the CPU.
 
 - This is the concept of the context switching:
-![alt text](image.png)
+![alt text](./images/image.png)
 
 - Costs:
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 
 - Key Takeaways:
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 
 ---
 
@@ -22,13 +22,13 @@ It uses a dynamic priority (by using an epoch) for each thread.
 
 It avoids starvation.
 
-![alt text](image-3.png)
+![alt text](./images/image-3.png)
 
 ### Multithread x Multi-process
 
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
 
-![alt text](image-5.png)
+![alt text](./images/image-5.png)
 
 ### Daemon threads
 
@@ -52,7 +52,7 @@ t.setDaemon(true);
 
 #### Analysis
 
-![alt text](image-6.png)
+![alt text](./images/image-6.png)
 
 ---
 
@@ -121,7 +121,7 @@ e.execute(task);
   
   - Always allocated on the heap
 
-![alt text](image-7.png)
+![alt text](./images/image-7.png)
 
 ---
 
@@ -210,19 +210,19 @@ Deadlock is a situation where everyone is trying to make progress, but cannot be
 
 ##### Example: railroad traffic control
 
-![alt text](image-12.png)
+![alt text](./images/image-12.png)
 
-![alt text](image-8.png)
+![alt text](./images/image-8.png)
 
 #### Conditions for a deadlock
 
-![alt text](image-9.png)
+![alt text](./images/image-9.png)
 
 #### Solution
 
-![alt text](image-10.png)
+![alt text](./images/image-10.png)
 
-![alt text](image-11.png)
+![alt text](./images/image-11.png)
 
 #### Conclusion
 
@@ -250,7 +250,7 @@ Reentrant meaning: a function or lock can be safely interrupted and called again
 - Works like a synchronized keyword
 - Requires explicit locking and unlocking
 
-![alt text](image-13.png)
+![alt text](./images/image-13.png)
 
 - Disadavantage
 
@@ -262,35 +262,35 @@ Reentrant meaning: a function or lock can be safely interrupted and called again
   - Control over the lock
   - More lock operations
 
-![alt text](image-14.png)
+![alt text](./images/image-14.png)
 
-![alt text](image-15.png)
+![alt text](./images/image-15.png)
 
-![alt text](image-16.png)
+![alt text](./images/image-16.png)
 
 - ReentrantLock.lockInterruptibly()
 
-![alt text](image-17.png)
+![alt text](./images/image-17.png)
 
 - ReentrantLock.tryLock()
 
-![alt text](image-18.png)
+![alt text](./images/image-18.png)
 
-![alt text](image-19.png)
+![alt text](./images/image-19.png)
 
-![alt text](image-20.png)
+![alt text](./images/image-20.png)
 
-![alt text](image-21.png)
+![alt text](./images/image-21.png)
 
 - ReentrantReadWriteLock (read and write lock)
 
-![alt text](image-22.png)
+![alt text](./images/image-22.png)
 
-![alt text](image-23.png)
+![alt text](./images/image-23.png)
 
-![alt text](image-24.png)
+![alt text](./images/image-24.png)
 
-![alt text](image-25.png)
+![alt text](./images/image-25.png)
 
 ---
 
@@ -302,11 +302,11 @@ Reentrant meaning: a function or lock can be safely interrupted and called again
 
 - The semaphore can restrict any given number of users to a resource
 
-![alt text](image-26.png)
+![alt text](./images/image-26.png)
 
-![alt text](image-27.png)
+![alt text](./images/image-27.png)
 
-![alt text](image-28.png)
+![alt text](./images/image-28.png)
 
 ---
 
@@ -314,17 +314,17 @@ Reentrant meaning: a function or lock can be safely interrupted and called again
 
 - await()
 
-![alt text](image-31.png)
+![alt text](./images/image-31.png)
 
 - wait(), notify(), notifyAll()
 
-![alt text](image-32.png)
+![alt text](./images/image-32.png)
 
 ---
 
 ### AtomicX Classes
 
-![alt text](image-33.png)
+![alt text](./images/image-33.png)
 
 - **AtomicInteger**
 
@@ -336,8 +336,8 @@ Reentrant meaning: a function or lock can be safely interrupted and called again
   - Wraps the reference to an object of a class, and give us the ability to perform atomic operations on that reference
 
   - compareAndSet()
-    ![alt text](image-35.png)
-    ![alt text](image-36.png)
+    ![alt text](./images/image-35.png)
+    ![alt text](./images/image-36.png)
     
 ---
 
@@ -347,13 +347,13 @@ Reentrant meaning: a function or lock can be safely interrupted and called again
 
 ### Thread-per-core model (non-blocking IO)
 
-![alt text](image-38.png)
+![alt text](./images/image-38.png)
 
 - Frameworks examples: netty, webflux, vert.x
 
 ### Thread-per-task X Thread-per-core
 
-![alt text](image-39.png)
+![alt text](./images/image-39.png)
 
 ---
 
@@ -373,31 +373,31 @@ Purpose: improve application scalability and simplify concurrent programming by 
   - Have fixed size stack memory
   - Map 1-to-1 to OS threads
 
-![alt text](image-40.png)
+![alt text](./images/image-40.png)
 
 #### Threading comparison models
 
-![alt text](image-41.png)
+![alt text](./images/image-41.png)
 
 #### Benefits
 
-![alt text](image-42.png)
+![alt text](./images/image-42.png)
 
 #### Virtual Threads - best practices
 
-![alt text](image-43.png)
+![alt text](./images/image-43.png)
 
 **Tasks that involves only the CPU - no benefit**
 
-![alt text](image-44.png)
+![alt text](./images/image-44.png)
 
 **Not much benefit on latency only with CPU operations. Only for throughput.**
 
-![alt text](image-45.png)
+![alt text](./images/image-45.png)
 
 **Frequent blocking calls**
 
-![alt text](image-46.png)
+![alt text](./images/image-46.png)
 
 **Best practices for VT**
 
